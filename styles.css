@@ -1,0 +1,172 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,100&display=swap');
+:root{
+    /* đặt biến cho màu  */
+    --card_price_color: #4daf54;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    height:100vh;
+    background: linear-gradient(to right , #4daf54,#3d8880);
+    font-family: 'Poppins', sans-serif;
+
+}
+.card{
+    background-color: #272d40;
+    height: 490px;
+    width:340px;
+    margin:200px auto; 
+    /* margin trên dưới = 200 , trái phải auto , làm như vậy có thẻ canh giữa */
+    border-radius: 16px;
+    position:relative;
+}
+.card_heart > i , .card_cart > i{
+color:#fff;
+font-size: 28px;
+position:absolute;
+left:12px;
+top:12px;
+}
+.card_cart > i{
+    
+    left:unset;
+    right:12px;
+    /* thuộc tính unset kiểu như là bỏ đi trong 
+    trường hợp này là bỏ đi thuộc tính left , khi css riêng cho thẻ card_cart
+    */
+}
+.card img{
+    margin-left:16px;
+}
+.card_img{
+  
+    transition:0.7s;
+width:100%; 
+/* 90% thừa kết từ thẻ card */
+}
+.card_img img {
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    width:90%;
+    background-color:none;
+    object-fit:cover;
+    background-size: cover;
+/* trong trường hợp này dùng thuộc tính object-fit  */
+}
+.card_title , .card_price{
+    padding: 1px;
+ text-align: center;   
+ color:#fff;
+ font-weight: 700;
+ font-size: 20px;
+ 
+}
+.card_title{
+    color:var(--card_price_color);
+}
+/* popins google , có 2 cách import , cách 1 là để vào css ,cách 2 là để vào html*/
+.card_color h3 , .card_size h3 {
+   display:inline-block;
+    /* để canh giữa ở hàng dọc ta dùng  align-items:center */
+    align-items: center ;
+ 
+}
+
+.card_size span{
+    background-color: var(--card_price_color);
+    display:inline-block;
+    border-radius:17%;
+    font-size: 22px;
+    margin-right:7px;
+}
+.card_color span{
+    background-color: aliceblue;
+    display: inline-block;
+    height:19px;
+    width:19px;
+    border-radius:50%;
+    margin-top:8px;
+    margin-right:4px;
+   
+/* do ko có content nên thẻ span ko thể hiện ra đc , nếu muốn có hình mà ko có chữ thì phải quy ước cho thẻ height , width  */
+}
+
+.card_color .card_color_black{
+    background-color: black;
+}
+.card_color .card_color_green{
+background-color: green;
+}
+.card_color .card_color_white{
+    background-color: white;
+}
+.card_color h3 {
+    color:#fff;
+}
+.card_size h3 {
+    color:#fff;
+}
+.card_size , .card_color , .card_action {
+    margin-left:30px;
+    margin-bottom: 10px;
+}
+
+/* card_action */
+.card_action button {
+    background: var(--card_price_color) ;
+    border: none;
+    outline: none; 
+    /* Lưu ý: Outline khác với Border trong CSS. Outline được vẽ bên phải border của phần tử và có thể đè lên các nội dung khác. Ngoài ra, outline cũng không phải là một phần trong kích thước của phần tử. Độ rộng và chiều cao của phần tử không bị ảnh hưởng bởi độ rộng của outline. */
+    /* background , background-color khác nhau */
+    color:#fff;
+    font-size: 17px;
+    padding: 7px 17px;
+    font-weight: bold;
+    /* phong chu dam bold */
+    border-radius:5px;
+}
+/*  làm hiệu ứng  , khi đụng vô thẻ card thì card_img thì sẽ quy góc khoảng 20độ */
+.card:hover .card_img {
+    transform: translateY(-90px) rotate(-20deg);
+  
+}
+.card_title , .card_price{
+transition: 0.7s;
+margin-top: -9px;
+}
+.card:hover .card_title  {
+    transform: translateY(-40px) translateX(-78px)  ;
+  
+}
+.card:hover .card_price  {
+    transform: translateY(-40px) translateX(-137px)  ;
+  
+}
+/* phần này làm ẩn và hiển ra card_size , card_color , card_action , ko nên dùng thuộc tính display vì phải chuyển trạng thái từ 0 đến bao nhiêu đó chứ ko ẩn đi như display */
+.card_size{
+    margin-top:150px;
+}
+.card_size,.card_color,.card_action{
+    /* sử dụng thuộc tính visibility */
+    /* sử dụng thuộc tính opacity  */
+    visibility:hidden;
+    opacity:0;
+    transition:0.6s;
+}
+.card:hover .card_size ,
+.card:hover .card_color,
+.card:hover .card_action   {
+    visibility: visible;
+    opacity:100;
+    transition-delay: 0.6s;
+}
+.card .card_size{
+    margin-top:-30px;
+
+}
+
+ 
